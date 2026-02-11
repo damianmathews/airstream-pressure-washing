@@ -1,0 +1,14 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/success"
+  to = "/success.html"
+  status = 200
+
+# Enable form detection
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
