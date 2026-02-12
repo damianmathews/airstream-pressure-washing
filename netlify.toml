@@ -6,6 +6,32 @@
   to = "/success.html"
   status = 200
 
+# Section rewrites - serve index.html for all section URLs
+[[redirects]]
+  from = "/services"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/fleet"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/commercial"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/facility"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/index.html"
+  status = 200
+
 # Enable form detection
 [build.processing]
   skip_processing = false
