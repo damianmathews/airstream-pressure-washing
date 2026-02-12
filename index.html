@@ -12,6 +12,14 @@
     <script>
         tailwind.config = {
             theme: {
+                screens: {
+                    'xs': '480px',
+                    'sm': '640px',
+                    'md': '768px',
+                    'lg': '1024px',
+                    'xl': '1280px',
+                    '2xl': '1536px',
+                },
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -43,9 +51,9 @@
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-900 border-b border-gray-800 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-24">
+            <div class="flex items-center justify-between h-20 lg:h-28">
                 <a href="#" class="flex items-center">
-                    <img src="logo.avif" alt="Airstream Pressure Washing Inc." class="h-16 w-auto">
+                    <img src="logo.avif" alt="Airstream Pressure Washing Inc." class="h-14 sm:h-16 lg:h-24 w-auto">
                 </a>
 
                 <div class="hidden lg:flex items-center gap-1">
@@ -60,68 +68,90 @@
                         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                         847-888-9274
                     </a>
-                    <a href="#contact" class="px-5 py-2.5 bg-primary-500 text-white text-sm font-semibold rounded-lg hover:bg-primary-600 transition shadow-sm">Get a Quote</a>
+                    <a href="#contact" class="hidden sm:inline-flex px-5 py-2.5 bg-primary-500 text-white text-sm font-semibold rounded-lg hover:bg-primary-600 transition shadow-sm">Get a Quote</a>
+
+                    <!-- Mobile hamburger button -->
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition" aria-label="Toggle menu">
+                        <svg id="hamburger-icon" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                        <svg id="close-icon" class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                    </button>
                 </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-gray-900 border-t border-gray-800">
+            <div class="px-4 py-4 space-y-2">
+                <a href="#services" class="block px-4 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition">Services</a>
+                <a href="#fleet" class="block px-4 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition">Fleet</a>
+                <a href="#commercial" class="block px-4 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition">Commercial</a>
+                <a href="#facility" class="block px-4 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition">Facility</a>
+                <a href="#contact" class="block px-4 py-3 text-base font-medium text-white bg-primary-600 hover:bg-primary-700 rounded-lg transition text-center">Get a Quote</a>
+                <a href="tel:847-888-9274" class="flex items-center justify-center gap-2 px-4 py-3 text-base font-medium text-primary-400 hover:text-primary-300 transition">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    Call 847-888-9274
+                </a>
             </div>
         </div>
     </nav>
 
     <!-- Hero -->
-    <section class="pt-32 pb-12 lg:pt-36 lg:pb-16 bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden">
+    <section class="pt-24 pb-8 sm:pt-28 sm:pb-10 lg:pt-36 lg:pb-14 bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden">
         <div class="absolute inset-0 opacity-20">
             <img src="https://images.pexels.com/photos/4099471/pexels-photo-4099471.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="" class="w-full h-full object-cover">
         </div>
         <div class="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/80 to-gray-900/60"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                 <div>
-                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary-600/20 border border-primary-500/30 text-primary-300 text-sm font-medium rounded-full mb-6">
+                    <div class="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-primary-600/20 border border-primary-500/30 text-primary-300 text-sm font-medium rounded-full mb-4 lg:mb-6">
                         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                         Serving South Elgin, IL & Nationwide
                     </div>
-                    <h1 class="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-tight mb-6">
-                        Professional Pressure Washing & <span class="text-primary-400">Complete Facility Maintenance</span>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-tight mb-4 lg:mb-6">
+                        Professional Pressure Washing & <span class="text-primary-400">Facility Maintenance</span>
                     </h1>
-                    <p class="text-lg text-gray-300 mb-8 max-w-lg">
-                        Get pristine, protected properties without the hassle of coordinating multiple contractors. From pressure washing to full facility maintenance—one trusted partner, guaranteed results.
+                    <p class="text-base sm:text-lg text-gray-300 mb-6 lg:mb-8 max-w-lg">
+                        From pressure washing to full facility maintenance—one trusted partner, guaranteed results.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 mb-10">
-                        <a href="#contact" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition shadow-lg shadow-primary-600/25">
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 lg:mb-10">
+                        <a href="#contact" class="inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition shadow-lg shadow-primary-600/25">
                             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                             Get a Free Quote
                         </a>
-                        <a href="tel:847-888-9274" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/10 text-white font-semibold rounded-lg border border-white/20 hover:bg-white/20 transition backdrop-blur">
+                        <a href="tel:847-888-9274" class="inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 bg-white/10 text-white font-semibold rounded-lg border border-white/20 hover:bg-white/20 transition backdrop-blur">
                             <svg class="w-5 h-5 text-primary-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                             847-888-9274
                         </a>
                     </div>
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                        <div class="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/10 text-center">
-                            <svg class="w-8 h-8 text-primary-400 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                            <div class="text-white text-sm font-semibold">Fully Insured</div>
+                    <!-- Trust badges - hidden on small mobile, 2x2 on larger mobile, 4 across on sm+ -->
+                    <div class="hidden xs:grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4">
+                        <div class="bg-white/10 backdrop-blur rounded-lg sm:rounded-xl p-2 sm:p-4 border border-white/10 text-center">
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8 text-primary-400 mx-auto mb-1 sm:mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            <div class="text-white text-xs sm:text-sm font-semibold">Fully Insured</div>
                         </div>
-                        <div class="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/10 text-center">
-                            <svg class="w-8 h-8 text-primary-400 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <div class="text-white text-sm font-semibold">EPA Compliant</div>
+                        <div class="bg-white/10 backdrop-blur rounded-lg sm:rounded-xl p-2 sm:p-4 border border-white/10 text-center">
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8 text-primary-400 mx-auto mb-1 sm:mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <div class="text-white text-xs sm:text-sm font-semibold">EPA Compliant</div>
                         </div>
-                        <div class="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/10 text-center">
-                            <svg class="w-8 h-8 text-primary-400 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                            <div class="text-white text-sm font-semibold">Owner Operated</div>
+                        <div class="bg-white/10 backdrop-blur rounded-lg sm:rounded-xl p-2 sm:p-4 border border-white/10 text-center">
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8 text-primary-400 mx-auto mb-1 sm:mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                            <div class="text-white text-xs sm:text-sm font-semibold">Owner Operated</div>
                         </div>
-                        <div class="bg-white/10 backdrop-blur rounded-xl p-4 border border-white/10 text-center">
-                            <svg class="w-8 h-8 text-primary-400 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                            <div class="text-white text-sm font-semibold">24/7 Available</div>
+                        <div class="bg-white/10 backdrop-blur rounded-lg sm:rounded-xl p-2 sm:p-4 border border-white/10 text-center">
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8 text-primary-400 mx-auto mb-1 sm:mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            <div class="text-white text-xs sm:text-sm font-semibold">24/7 Available</div>
                         </div>
                     </div>
                 </div>
                 <div class="hidden lg:grid grid-cols-2 gap-4">
                     <div class="space-y-4">
-                        <img src="https://images.pexels.com/photos/4099471/pexels-photo-4099471.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pressure washing driveway" class="rounded-2xl shadow-2xl w-full h-48 object-cover">
-                        <img src="https://images.pexels.com/photos/6474471/pexels-photo-6474471.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pressure washing deck" class="rounded-2xl shadow-2xl w-full h-64 object-cover">
+                        <img src="https://images.pexels.com/photos/4099471/pexels-photo-4099471.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pressure washing driveway" class="rounded-2xl shadow-2xl w-full h-40 object-cover">
+                        <img src="https://images.pexels.com/photos/6474471/pexels-photo-6474471.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pressure washing deck" class="rounded-2xl shadow-2xl w-full h-52 object-cover">
                     </div>
                     <div class="space-y-4 pt-8">
-                        <img src="https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Fleet trucks" class="rounded-2xl shadow-2xl w-full h-64 object-cover">
-                        <img src="https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Commercial building" class="rounded-2xl shadow-2xl w-full h-48 object-cover">
+                        <img src="https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Fleet trucks" class="rounded-2xl shadow-2xl w-full h-52 object-cover">
+                        <img src="https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Commercial building" class="rounded-2xl shadow-2xl w-full h-40 object-cover">
                     </div>
                 </div>
             </div>
@@ -786,8 +816,27 @@
 
     <script>
         // Mobile menu toggle
-        document.getElementById('nav-toggle')?.addEventListener('click', function() {
-            document.getElementById('nav-menu')?.classList.toggle('hidden');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        function toggleMobileMenu() {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+        mobileMenuBtn?.addEventListener('click', toggleMobileMenu);
+
+        // Close mobile menu when clicking a link
+        mobileMenu?.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            });
         });
 
         // Section routing - maps URL paths to section IDs
